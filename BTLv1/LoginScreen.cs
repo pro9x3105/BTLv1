@@ -13,7 +13,6 @@ namespace BTLv1
 {
     public partial class LoginScreen : Form
     {
-
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-CTJL81R;Database=BTL44a;Integrated Security=False;User Id=sa;Password=31051999;");
         Classv1 connv1 = new Classv1();
 
@@ -118,7 +117,8 @@ namespace BTLv1
                 }
             }
             return check;
-        }
+        }
+
 
 
         private void BtnLogin_Click(object sender, EventArgs e)
@@ -127,11 +127,10 @@ namespace BTLv1
             if(ID_USER != "")
             {
                 MessageBox.Show("Đăng nhập thành công với ID : "+ID_USER+"\n Với phân quyền " + id_CV(ID_USER));
-                List<Classv2> list1 = new List<Classv2>();
-                list1.Add(new Classv2 (ID_USER));
-                StaticDataClassv2.classv2s = list1;
+                StaticDataClassv2.classv2s.ID_USER1 = ID_USER;
                 Permission per1 = new Permission();
                 per1.Show();
+                this.Hide();
             }
             else
             {
@@ -143,8 +142,7 @@ namespace BTLv1
         {
             SignUp signup = new SignUp();
             this.Hide();
-            signup.Show(); 
-
+            signup.Show();
         }
 
         private void BtnThoat_Click(object sender, EventArgs e)
@@ -155,6 +153,52 @@ namespace BTLv1
         private void LoginScreen_Load(object sender, EventArgs e)
         {
             list_detail = list_CV(id_CV(ID_USER));
+        }
+
+        private void BtnLogin_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void TxtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                BtnLogin_Click(null, null);
+            }
+        }
+
+        private void TxtID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnLogin_Click(null, null);
+            }
+        }
+
+        private void ĐăngNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BtnLogin_Click(null, null);
+        }
+
+        private void ĐăngKýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BtnDangKy_Click(null, null);
+        }
+
+        private void ThoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BtnThoat_Click(null, null);
+        }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Phần mềm được làm bởi \n - Nguyễn Quang Anh");
         }
     }
 }

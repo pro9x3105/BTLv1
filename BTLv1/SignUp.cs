@@ -76,5 +76,10 @@ namespace BTLv1
             txtPass.Text = "";
             txtPassCheck.Text = "";
         }
+
+        private void SignUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

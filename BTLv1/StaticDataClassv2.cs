@@ -8,6 +8,6 @@ namespace BTLv1
 {
     class StaticDataClassv2
     {
-        public static List<Classv2> classv2s = new List<Classv2>();
+        public static Classv2 classv2s = new Classv2();
     }
 }

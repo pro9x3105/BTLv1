@@ -133,6 +133,7 @@
             this.Controls.Add(this.lbID);
             this.Name = "SignUp";
             this.Text = "Đăng Ký";
+            this.Load += new System.EventHandler(this.SignUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

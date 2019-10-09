@@ -12,7 +12,7 @@ namespace BTLv1
     {
         SqlConnection conn = new SqlConnection("Data Source=DESKTOP-CTJL81R;Database=BTL44a;Integrated Security=False;User Id=sa;Password=31051999;");
 
-        public Boolean exedata(string cmd)
+        public Boolean exedata(string cmd)          //sqlcommand ( nhap cau lenh sql )
         {
             conn.Open();
             Boolean check = false;
@@ -30,7 +30,7 @@ namespace BTLv1
             return check;
         }
 
-        public DataTable readdata(string cmd)
+        public DataTable readdata(string cmd)           //tao bang datatable qua sql
         {
             conn.Open();
             DataTable da = new DataTable();
